@@ -1,4 +1,5 @@
 from user import *
+import pytest
 
 
 class TestTestReturnsDifferentNames:
@@ -48,3 +49,21 @@ class TestTestReturnsDifferentNames:
         assert result1 != result2
         assert all(ord(c) < 128 for c in result1)
         assert all(ord(c) < 128 for c in result2)
+
+    def test_generates_list_of_0_users_when_n_is_0(self):
+        # Arrange
+        n = 0
+
+        # Act
+        result = get_users(n)
+
+        # Assert
+        assert len(result) == 0
+
+    def test_raises_exception_when_n_is_negative(self):
+        # Arrange
+        n = -1
+
+        # Act and Assert
+        with pytest.raises(Exception):
+            get_users(n)

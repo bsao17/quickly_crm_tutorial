@@ -22,6 +22,8 @@ def get_users(n):
         :arg: Number of fake users
         :return fake users
     """
+    if n < 0:
+        raise ValueError
     logging.info(f"generating a list of {n} users.")
     return [fake.unique.name() for _ in range(n)]
 
