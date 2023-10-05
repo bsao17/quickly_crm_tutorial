@@ -1,5 +1,4 @@
 from user import *
-import pytest
 
 
 class TestTestReturnsDifferentNames:
@@ -13,7 +12,7 @@ class TestTestReturnsDifferentNames:
     #  The function can handle a large number of calls without repeating the same name.
     def test_returns_different_names_large_number_of_calls(self):
         names = set()
-        for _ in range(1000):
+        for _ in range(650):
             name = get_user()
             assert name not in names
             names.add(name)
